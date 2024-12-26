@@ -26,6 +26,7 @@
 export default {
   props: ['datas', 'customClass'],
   computed: {
+    // pj: 不需要多套一层
     navigationBarClass() {
       return this.customClass;
     },

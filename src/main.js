@@ -10,6 +10,7 @@ import store from './store';
 import './assets/global.css';
 // 引入ui全部样式
 import 'element-ui/lib/theme-chalk/index.css';
+
 Vue.config.productionTip = false;
 // 应用
 Vue.use(ElementUI);

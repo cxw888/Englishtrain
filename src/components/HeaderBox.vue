@@ -1,5 +1,6 @@
 <template>
   <div class="top">
+    <!-- pj: 请使用真实api数据来写 -->
     <div class="header">
       <div class="pic" />
     </div>
@@ -14,7 +15,11 @@ export default {
   props: ['username'],
 };
 </script>
+<!-- pj: 请使用less -->
 <style lang="css" scoped>
+/**
+* pj: 常用的几种css单位，em, rem, px
+ */
 .top {
   margin: 0 2.56410256vw;
   display: flex;
