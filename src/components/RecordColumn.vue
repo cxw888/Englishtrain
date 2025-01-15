@@ -1,7 +1,7 @@
 <template>
   <div class="practice-summary">
     <!-- 组件的多次复用！！！ 不同的样式可以动态传过来  -->
-    <div :class="['navigationbar', navigationBarClass]">
+    <div :class="['navigationbar', customClass]">
       <div class="contet">
         <slot name="center" />
         <div class="content">
@@ -11,7 +11,7 @@
             class="item"
           >
             <div class="number">
-              {{ item.grade }}
+              {{ item.result }}
             </div>
             <div class="text">
               {{ item.title }}
@@ -25,60 +25,54 @@
 <script>
 export default {
   props: ['datas', 'customClass'],
-  computed: {
-    // pj: 不需要多套一层
-    navigationBarClass() {
-      return this.customClass;
-    },
-  },
 };
 </script>
 <style lang="css">
 .practice-summary {
-  margin-right: 2.56410256vw;
-  margin-left: 2.56410256vw;
-  height: 30vw;
+  margin-right: 0.71em;
+  margin-left: 0.71em;
+  height: 8.36em;
 }
 .practice-summary .navigationbar {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  border-radius: 2.56410256vw;
-  padding: 0.5vw;
+  border-radius: 0.71em;
+  padding: 0.14em;
 }
 .practice-summary .navigationbar .contet {
-  padding: 2vw 1vw 2vw 1vw;
-  height: 29vw;
+  padding: 0.55em 0.27em 0.55em 0.27em;
+  height: 8em;
   background-color: #0d0f24;
-  border-radius: 2.56410256vw;
+  border-radius: 0.71em;
 }
 .practice-summary .navigationbar .contet .tge {
-  margin: 0 2.56410256vw 0;
+  margin: 0 0.71em 0;
   display: flex;
-  height: 8.25641026vw;
+  height: 2.86em;
   justify-content: space-between;
 }
 .practice-summary .navigationbar .contet .tge .leftt {
   color: white;
-  font-size: 4.35897436vw;
-  line-height: 10.25641026vw;
+  font-size: 1.4em;
+  line-height: 1.8em;
   text-decoration: none;
 }
 .practice-summary .navigationbar .contet .tge .rightt {
   color: white;
-  font-size: 3.33333333vw;
-  line-height: 10.25641026vw;
+  font-size: 0.92em;
+  line-height: 2.86em;
   text-decoration: none;
 }
 .practice-summary .navigationbar .contet .content {
-  margin: 2.56410256vw;
+  margin: 0.71em;
   display: flex;
 }
 .practice-summary .navigationbar .contet .content .item {
-  /* width: 17.66666667vw; */
+  /* width: 17.66666667em; */
   flex: 1;
   margin: 0;
-  height: 12.82051282vw;
+  height: 3.57em;
   text-align: center;
   position: relative;
   /* 近似于1/3的100% */
@@ -101,12 +95,12 @@ export default {
   /* 或者可以设置一个具体的高度值 */
 }
 .practice-summary .navigationbar .contet .content .item .number {
-  margin-bottom: 2.56410256vw;
+  margin-bottom: 0.2em;
   color: white;
   font-weight: 600;
-  font-size: 5.12820513vw;
+  font-size: 1.43em;
 }
 .practice-summary .navigationbar .contet .content .item .text {
-  font-size: 3vw;
+  font-size: 0.9em;
 }
 </style>

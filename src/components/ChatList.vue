@@ -32,37 +32,37 @@ export default {
 </script>
 <style lang="css">
 .chat-list {
-  height: 32.33333333vw;
+  height: 9em;
   display: flex;
   justify-content: flex-end;
-  gap: 2vw;
+  gap: 0.6em;
 }
 .chat-list .content .name {
-  font-size: 2.82051282vw;
+  font-size: 0.78em;
   color: #fff;
 }
 .chat-list .content .content-audio-wrapper {
-  padding: 1.28205128vw;
-  height: 9.23076923vw;
-  width: 23.07692308vw;
-  border-radius: 3.07692308vw 0 3.07692308vw 3.07692308vw;
+  padding: 0.35em;
+  height: 2.57em;
+  width: 6.43em;
+  border-radius: 0.8em 0 0.8em 0.8em;
   background: white;
   display: flex;
-  gap: 0.5vw;
-  margin-top: 1vw;
+  gap: 0.1em;
+  margin-top: 0.27em;
   align-items: center;
 }
 .chat-list .content .content-audio-wrapper img {
-  width: 5.12820513vw;
-  height: 5.12820513vw;
+  width: 1.43em;
+  height: 1.43em;
 }
 .chat-list .content .content-text {
-  height: 10.43589744vw;
-  margin-top: 2vw;
+  height: 4.85em;
+  margin-top: 0.55em;
   background: rgba(235, 236, 255, 0.94902);
-  border-radius: 3.07692308vw;
-  font-size: 4.1025641vw;
-  padding: 2.56410256vw 3.07692308vw;
+  border-radius: 0.85em;
+  font-size: 1.14em;
+  padding: 0.71em 0.85em;
   color: #222;
   font-weight: 400;
   display: flex;

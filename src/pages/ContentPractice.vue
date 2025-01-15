@@ -39,7 +39,7 @@
         </div>
       </div>
     </div>
-    <RecordColumn :datas="ranking">
+    <RecordColumn :datas="rankingdata">
       <template slot="center">
         <div class="get">
           <div class="tag">
@@ -70,7 +70,7 @@ export default {
       item: null,
       loading: true,
       error: null,
-      ranking: [],
+      rankingdata: [],
       clickedDate: '',
     };
   },
@@ -81,8 +81,14 @@ export default {
   methods: {
     async rankings() {
       try {
-        const response = await axios.get('https://run.mocky.io/v3/cdf1541e-6ddd-4f0b-8582-f79c94c3935f');
-        this.ranking = response.data;
+        const response = await axios.get('https://run.mocky.io/v3/89c7498d-d760-4a75-b3a3-530dfc06e180');
+        const originaldata = response.data;
+        this.rankingdata = originaldata.map((item) => ({
+          ...item,
+          result: item.title === '练习总时间'
+            ? `${(parseInt(item.result, 10) / 60000).toFixed(0)} 分钟`
+            : item.result,
+        }));
       } catch (err) {
         this.error = 'Failed to fetch data';
       } finally {
@@ -119,86 +125,85 @@ export default {
 <style lang="css" scoped>
 .get {
   display: flex;
-  height: 8vw;
+  height: 2.2em;
   justify-content: space-between;
 }
 .top {
   background-color: rgba(0, 0, 0, 0.6);
-  margin: 2.56410256vw;
-  padding: 2.56410256vw;
+  margin: 0.71em;
+  padding: 0.71em;
   backdrop-filter: blur(4px);
-  border-radius: 3.84615385vw;
+  border-radius: 1.07em;
 }
 .tag {
-  width: 14.35897436vw;
-  height: 5.12820513vw;
-  font-size: 3.07692308vw;
-  line-height: 5.12820513vw;
+  width: 4em;
+  height: 1.43em;
+  font-size: 0.86em;
+  line-height: 1.43em;
   color: white;
   text-align: center;
-  border-radius: 1.02564103vw;
+  border-radius: 0.28em;
   background: linear-gradient(237deg, #5c67ff 17.4%, #e270ff 87.02%), #707aff;
-  margin-bottom: 5.12820513vw;
+  margin-bottom: 1.43em;
 }
 .title {
-  font-size: 4.61538462vw;
+  font-size: 1.28em;
   color: white;
-  margin: 5.12820513vw 0;
-  margin-right: 2.56410256vw;
+  margin: 1.43em 0;
+  margin-right: 0.71em;
 }
 .content {
   color: #fff;
-  font-size: 3.58974359vw;
+  font-size: 1em;
   opacity: 0.7;
-  margin-top: 3.84615385vw;
+  margin-top: 1.07em;
 }
 .two {
   background-color: rgba(0, 0, 0, 0.6);
-  margin: 2.56410256vw;
-  padding: 2.56410256vw;
+  margin: 0.71em;
+  padding: 0.71em;
   backdrop-filter: blur(4px);
-  border-radius: 3.84615385vw;
+  border-radius: 1.07em;
 }
 .two .pc {
-  width: 12.30769231vw;
-  height: 12.30769231vw;
-  background-size: cover;
   background: url(../assets/cover.aa799c19.png);
-  border-radius: 51.28205128vw;
+  width: 3.43em;
+  height: 3.43em;
+  background-size: cover;
+  border-radius: 14.28em;
   background-size: 100% 100%;
-  margin-right: 2.56410256vw;
+  margin-right: 0.71em;
 }
 .two .right {
-  width: 71.79487179vw;
+  width: 20em;
 }
 .two .right .titles .women {
-  font-size: 3.07692308vw;
+  font-size: 0.86em;
 }
 .contents {
-  width: 86.66666667vw;
-  /* height: 14.71794872vw; */
+  width: 24.14em;
   display: flex;
   justify-content: start;
 }
 .three {
   background-color: rgba(0, 0, 0, 0.6);
-  margin: 2.56410256vw;
-  padding: 2.56410256vw;
+  margin: 0.71em;
+  padding: 0.71em;
   backdrop-filter: blur(4px);
-  height: 31.28205128vw;
-  border-radius: 3.84615385vw;
+  height: 8.71em;
+  border-radius: 1.07em;
 }
 .three .pc2 {
-  width: 12.30769231vw;
-  height: 12.30769231vw;
-  background-size: cover;
   background: url(../assets/avatar-default.png);
-  border-radius: 51.28205128vw;
+  width: 3.43em;
+  height: 3.43em;
+  background-size: cover;
+  border-radius: 14.28em;
   background-size: 100% 100%;
-  margin-right: 2.56410256vw;
+  margin-right: 0.71em;
 }
 .three .titles {
-  margin-bottom: 5.12820513vw;
+  margin-bottom: 1.43em;
   display: flex;
   flex-direction: column;
   justify-content: center;

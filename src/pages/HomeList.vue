@@ -51,12 +51,12 @@ export default {
   },
   created() {
     this.fetchApiData();
-    this.totaldatas();
+    this.fetchtotaldata();
   },
   methods: {
     async fetchApiData() {
       try {
-        const response = await axios.get('https://run.mocky.io/v3/e379d7d3-b3ed-4b3d-b992-a1c63b688c08');
+        const response = await axios.get('https://run.mocky.io/v3/69219195-6ca4-45c2-ac2f-1bf4aeb912e8');
         this.practice = response.data;
       } catch (err) {
         this.error = 'Failed to fetch data';
@@ -64,10 +64,16 @@ export default {
         this.loading = false;
       }
     },
-    async totaldatas() {
+    async fetchtotaldata() {
       try {
-        const response = await axios.get('https://run.mocky.io/v3/a74ca58d-cf53-49fe-9a5f-6888c58db70b');
-        this.totaldata = response.data;
+        const response = await axios.get('https://run.mocky.io/v3/e66bad9b-90b0-42af-ba31-e9468daec5b9');
+        const originaldata = response.data;
+        this.totaldata = originaldata.map((item) => ({
+          ...item,
+          result: item.title === '练习总时间'
+            ? `${(parseInt(item.result, 10) / 60000).toFixed(0)} 分钟`
+            : item.result,
+        }));
       } catch (err) {
         this.error = 'Failed to fetch data';
       } finally {
@@ -82,11 +88,11 @@ export default {
   background: linear-gradient(48deg, #e270ff 0%, #5b66ff 44%, #10de8b 92%);
 }
 .bottoms {
-  margin-top: 5vw;
+  margin-top: 1.4em;
   text-align: center;
 }
 .title {
-  margin: 5.12820513vw 2.56410256vw 5.12820513vw;
+  margin: 1.4em 0.71em 1.4em;
   color: white;
 }
 </style>

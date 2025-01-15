@@ -226,12 +226,12 @@ export default {
 <style lang="css" scoped>
 .recording {
   position: fixed;
-  left: 2.56410256vw;
-  bottom: 2.56410256vw;
-  width: 92.87179487vw;
-  height: 47vw;
+  left: 0.7em;
+  bottom: 0.7em;
+  width: 25.8em;
+  height: 13em;
   border: 2px solid #5c67ff;
-  border-radius: 3vw;
+  border-radius: 0.83em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -239,79 +239,79 @@ export default {
   background: linear-gradient(247deg, rgba(92, 103, 255, .85098) 15.1%, rgba(226, 112, 255, .85098) 84.9%);
 }
 .recording img {
-  width: 18vw;
-  height: 18vw;
+  width: 5em;
+  height: 5em;
   position: absolute;
-  bottom: 35vw;
-  left: 37vw;
+  bottom: 9.75em;
+  left: 10em;
 }
 .recording .close {
   position: absolute;
-  right: 4vw;
-  bottom: 35vw;
+  right: 1.1em;
+  bottom: 9.75em;
 }
 .recording .time {
-  margin-bottom: 24px;
-  margin-top: 60px;
+  margin-bottom: 1.7em;
+  margin-top: 4.3em;
 }
 .pc {
-  margin: 3vw;
-  width: 9.23076923vw;
-  height: 9.23076923vw;
+  margin: 0.8em;
+  width: 2.56em;
+  height: 2.56em;
   background-size: cover;
   background: url(../assets/cover.aa799c19.png);
-  border-radius: 51.28205128vw;
+  border-radius: 14em;
   background-size: 100% 100%;
 }
 .header {
-  margin: 2.56410256vw;
-  padding: 2.56410256vw;
+  margin: 0.71em;
+  padding: 0.71em;
   background: rgba(0, 0, 0, 0.6);
-  height: 20.51282051vw;
-  border-radius: 3.07692308vw;
+  height: 5.71em;
+  border-radius: 0.85em;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 .header .single-line {
   font-weight: 500;
-  font-size: 4.1025641vw;
+  font-size: 1.14em;
   color: white;
 }
 .header .title {
-  margin: 2vw 2vw 0;
+  margin: 0.55em 0.55em 0;
   padding: 0;
   display: flex;
   justify-content: space-between;
-  height: 7.17948718vw;
+  height: 2em;
 }
 .nova-btn {
-  padding: 1.5vw 2.2vw;
+  padding: 0.4em 0.6em;
   position: fixed;
   background-color: white;
-  width: 25.64102564vw;
-  height: 8.20512821vw;
+  width: 7em;
+  height: 2.2em;
   color: #707aff;
-  left: 5.12820513vw;
+  left: 1.4em;
   border: none;
-  border-radius: 12.82051282vw;
-  bottom: 17.94871795vw;
+  border-radius: 3.6em;
+  bottom: 5em;
 }
 .tips-dialog {
   position: fixed;
   background-color: #fff;
-  border-radius: 5.12820513vw;
-  height: 51.28205128vw;
+  border-radius: 1.43em;
+  height: 14.28em;
   color: #707aff;
-  left: 2.56410256vw;
-  bottom: 2.56410256vw;
-  width: 94.87179487vw;
-  padding: 5.12820513vw;
+  left: 0.71em;
+  bottom: 0.71em;
+  width: 26.43em;
+  padding: 1.43em;
 }
 .tips-dialog .letter {
   overflow: auto;
-  width: 80vw;
-  height: 40vw;
+  width: 22em;
+  height: 11em;
 }
 .tips-dialog .headericon {
   display: flex;

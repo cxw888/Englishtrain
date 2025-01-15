@@ -11,7 +11,7 @@ body {
     background-size: cover;
     color: #666;
     -webkit-text-size-adjust: 100%;
-    font-size: 3.58974359vw;
+    font-size: 14px;
     padding-bottom: env(safe-area-inset-bottom);
     font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
@@ -19,20 +19,20 @@ body {
 /* 底部点击语言录制按钮 */
 .bottom {
     text-decoration: none;
-    margin: 0 2.56410256vw;
-    width: 94.87179487vw;
-    height: 12.30769231vw;
-    line-height: 12.30769231vw;
+    margin: 0 0.7em;
+    width: 26.4em;
+    height: 3.4em;
+    line-height: 3.4em;
     background: linear-gradient(247deg, #5c67ff 15.1%, #e270ff 84.9%), linear-gradient(90deg, #e270ff, #5c67ff);
     position: fixed;
-    bottom: 2.56410256vw;
-    padding: 3.07692308vw 4.1025641vw;
-    border-radius: 25.64102564vw;
+    bottom: 0.7em;
+    padding: 0.7em 1.1em;
+    border-radius: 7.1em;
     display: flex;
     justify-content: center;
     color: #fff;
-    font-size: 4.1025641vw;
-    gap: 1.02564103vw;
+    font-size: 1.1em;
+    gap: 0.3em;
     font-weight: 600;
     border: none;
     align-items: center;
@@ -40,13 +40,13 @@ body {
 
 /* 任务场景 紫色*/
 .tag {
-    width: 14.35897436vw;
-    height: 5.12820513vw;
-    font-size: 3.07692308vw;
-    line-height: 5.12820513vw;
+    width: 4em;
+    height: 1.4em;
+    font-size: 0.85em;
+    line-height: 1.4em;
     color: white;
     text-align: center;
-    border-radius: 1.02564103vw;
+    border-radius: 0.28em;
     background: linear-gradient(237deg, #5c67ff 17.4%, #e270ff 87.02%), #707aff;
-    margin-bottom: 5.12820513vw;
+    margin-bottom: 1.4em;
 }

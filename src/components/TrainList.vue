@@ -27,25 +27,24 @@ export default {
 </script>
 <style lang="css" scoped>
 .section {
-  margin: 3.84615385vw 2.56410256vw 0;
+  margin: 1.07em 0.71em 0;
   background-color: rgba(2, 4, 10, 0.70196);
   display: flex;
-  font-size: 3.84615385vw;
-  border-radius: 2.56410256vw;
-  padding: 4.61538462vw 3.84615385vw 3.84615385vw;
+  font-size: 1.07em;
+  border-radius: 0.71em;
+  padding: 1.28em 1.07em 1.07em;
   justify-content: space-between;
   text-decoration: none;
-  color: #666;
 }
 .section img {
-  width: 25.64102564vw;
-  height: 25.64102564vw;
+  width: 7.14em;
+  height: 7.14em;
 }
 .section .texts {
-  margin-left: 2.48717949vw;
+  margin-left: 0.69em;
 }
 .section .texts h3 {
-  font-size: 4vw;
+  font-size: 1.11em;
   color: white;
   margin: 0;
 }

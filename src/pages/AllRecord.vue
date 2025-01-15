@@ -4,7 +4,7 @@
       练习记录{{ num }}
     </div>
     <div
-      v-for="item in practice"
+      v-for="item in practicedata"
       :key="item.id"
       class="section"
     >
@@ -41,7 +41,7 @@ export default {
   name: 'AllRecord',
   data() {
     return {
-      practice: [],
+      practicedata: [],
     };
   },
   created() {
@@ -50,8 +50,8 @@ export default {
   methods: {
     async allData() {
       try {
-        const response = await axios.get('https://run.mocky.io/v3/b8fadf8d-ad95-4f6a-bb00-ccb60e1c3426');
-        this.practice = response.data;
+        const response = await axios.get('https://run.mocky.io/v3/0d2c7222-f9b3-4a74-b13c-cffc60920ff6');
+        this.practicedata = response.data;
       } catch (err) {
         this.error = 'Failed to fetch data';
       } finally {
@@ -59,7 +59,6 @@ export default {
       }
     },
     still(item) {
-      // this.$store.commit('CHANGE', item);
       this.$router.push({
         path: `/startpracticing/${item.id}`,
       });
@@ -69,54 +68,54 @@ export default {
 </script>
 <style lang="css" scoped>
 .block-title {
-  padding: 5.64102564vw 2.56410256vw 0 5.12820513vw;
-  height: 11.79487179vw;
-  font-size: 4.61538462vw;
+  padding: 1.57em 0.71em 0 1.42em;
+  height: 3.28em;
+  font-size: 1.28em;
   color: white;
 }
 .section {
-  padding: 4.61538462vw 3.33333333vw 3.84615385vw 3.84615385vw;
-  margin: 3.84615385vw 2.56410256vw 0;
-  height: 26.66666667vw;
+  padding: 1.28em 0.93em 1.07em 1.07em;
+  margin: 1.07em 0.71em 0;
+  height: 7.43em;
   background: rgba(2, 4, 10, 0.70196);
   display: flex;
   align-items: flex-start;
-  gap: 2.56410256vw;
+  gap: 0.71em;
 }
 img {
-  width: 16.41025641vw;
-  height: 16.41025641vw;
+  width: 4.57em;
+  height: 4.57em;
 }
 .section .practice-namec-line-clamp2 {
   flex: 1;
   display: flex;
-  height: 20vw;
-  gap: 2.12820513vw;
+  height: 5.6em;
+  gap: 1.43em;
   flex-direction: column;
 }
 .section .practice-namec-line-clamp2 .practice-name__status--text {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 1.28205128vw;
+  gap: 0.36em;
   color: white;
   line-height: 1.5;
 }
 .section .practice-namec-line-clamp2 .practice-name__status--text span {
-  height: 4.35897436vw;
-  font-size: 2.56410256vw;
-  border: 0.25641026vw solid #fff;
-  border-radius: 1.28205128vw;
-  padding: 0.25641026vw;
+  height: 1.21em;
+  font-size: 0.71em;
+  border: 0.07142857em solid #fff;
+  border-radius: 0.36em;
+  padding: 0.07em;
   color: #fff;
   font-weight: 400;
 }
 .section .practice-namec-line-clamp2 .practice-name__status--text .text {
-  font-size: 4.35897436vw;
+  font-size: 1.21em;
   font-weight: 600;
 }
 .section .practice-namec-line-clamp2 .meta {
-  /* height: 8vw; */
+  /* height: 8em; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -124,15 +123,15 @@ img {
 .section .practice-namec-line-clamp2 .meta .itemtime {
   color: #999;
   display: flex;
-  font-size: 3.07692308vw;
+  font-size: 0.86em;
   flex-direction: column;
   justify-content: space-around;
-  /* gap: 0.51282051vw; */
+  /* gap: 0.51282051em; */
 }
 .section .practice-namec-line-clamp2 .meta .still span {
   text-decoration: none;
   color: #a86cff;
   font-weight: 600;
-  font-size: 3.07692308vw;
+  font-size: 0.86em;
 }
 </style>
