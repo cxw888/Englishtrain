@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="top">
+    <div class="tops">
       <div class="tag">
         场景任务
       </div>
@@ -20,7 +20,7 @@
         <div class="right">
           <div class="titles">
             <span class="title">{{ item.manager }}</span>
-            <span class="women">{{ item.gender }}</span>
+            <span class="women">{{ item.gender | getgender }}</span>
           </div>
           <div class="content">
             {{ item.content }}
@@ -33,10 +33,8 @@
         我的角色
       </div>
       <div class="contents">
-        <div class="pc2" />
-        <div class="titles">
-          <span class="title">{{ item.name }}</span>
-        </div>
+        <img class="pc2" :src="news.url" />
+        <span class="title">{{ item.name }}</span>
       </div>
     </div>
     <RecordColumn :datas="rankingdata">
@@ -49,15 +47,13 @@
         </div>
       </template>
     </RecordColumn>
-    <div
-      class="bottom"
-      @click="ask(item)"
-    >
+    <div class="bottom" @click="ask(item)">
       <i class="el-icon-microphone" />点击开始练习
     </div>
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 import axios from 'axios';
 import RecordColumn from '../components/RecordColumn.vue';
 
@@ -74,6 +70,18 @@ export default {
       clickedDate: '',
     };
   },
+  filters: {
+    getgender(value) {
+      if (value == 0) {
+        return `女性`
+      } else {
+        return `男性`
+      }
+    }
+  },
+  computed: {
+    ...mapState(['news']),
+  },
   created() {
     this.rankings();
     this.fetchItemDetails();
@@ -81,14 +89,8 @@ export default {
   methods: {
     async rankings() {
       try {
-        const response = await axios.get('https://run.mocky.io/v3/89c7498d-d760-4a75-b3a3-530dfc06e180');
-        const originaldata = response.data;
-        this.rankingdata = originaldata.map((item) => ({
-          ...item,
-          result: item.title === '练习总时间'
-            ? `${(parseInt(item.result, 10) / 60000).toFixed(0)} 分钟`
-            : item.result,
-        }));
+        const response = await axios.get('https://run.mocky.io/v3/f52f042f-c0c6-4d37-9202-119813bd7c05');
+        this.rankingdata = response.data;
       } catch (err) {
         this.error = 'Failed to fetch data';
       } finally {
@@ -128,13 +130,15 @@ export default {
   height: 2.2em;
   justify-content: space-between;
 }
-.top {
+
+.tops {
   background-color: rgba(0, 0, 0, 0.6);
   margin: 0.71em;
   padding: 0.71em;
   backdrop-filter: blur(4px);
   border-radius: 1.07em;
 }
+
 .tag {
   width: 4em;
   height: 1.43em;
@@ -146,18 +150,21 @@ export default {
   background: linear-gradient(237deg, #5c67ff 17.4%, #e270ff 87.02%), #707aff;
   margin-bottom: 1.43em;
 }
+
 .title {
   font-size: 1.28em;
   color: white;
   margin: 1.43em 0;
   margin-right: 0.71em;
 }
+
 .content {
   color: #fff;
   font-size: 1em;
   opacity: 0.7;
   margin-top: 1.07em;
 }
+
 .two {
   background-color: rgba(0, 0, 0, 0.6);
   margin: 0.71em;
@@ -165,6 +172,7 @@ export default {
   backdrop-filter: blur(4px);
   border-radius: 1.07em;
 }
+
 .two .pc {
   background: url(../assets/cover.aa799c19.png);
   width: 3.43em;
@@ -174,17 +182,21 @@ export default {
   background-size: 100% 100%;
   margin-right: 0.71em;
 }
+
 .two .right {
   width: 20em;
 }
+
 .two .right .titles .women {
   font-size: 0.86em;
 }
+
 .contents {
   width: 24.14em;
   display: flex;
   justify-content: start;
 }
+
 .three {
   background-color: rgba(0, 0, 0, 0.6);
   margin: 0.71em;
@@ -193,8 +205,8 @@ export default {
   height: 8.71em;
   border-radius: 1.07em;
 }
+
 .three .pc2 {
-  background: url(../assets/avatar-default.png);
   width: 3.43em;
   height: 3.43em;
   background-size: cover;
@@ -202,6 +214,7 @@ export default {
   background-size: 100% 100%;
   margin-right: 0.71em;
 }
+
 .three .titles {
   margin-bottom: 1.43em;
   display: flex;

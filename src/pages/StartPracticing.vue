@@ -7,11 +7,7 @@
         </div>
         <template>
           <div @click="stop">
-            <el-button
-              size="mini"
-              round
-              icon="el-icon-switch-button"
-            >
+            <el-button size="mini" round icon="el-icon-switch-button">
               结束
             </el-button>
           </div>
@@ -21,37 +17,20 @@
         {{ only.title }}
       </div>
     </div>
-    <ChatList
-      v-for="(item, index) in messages"
-      :key="index"
-      :item="item"
-      :names="only.manager"
-    >
+    <ChatList v-for="(item, index) in messages" :key="index" :item="item" :names="only.manager">
       <template #pcc>
-        <div class="pc" />
+        <img class="pc" :src="news.url" />
       </template>
     </ChatList>
-    <div
-      v-show="began"
-      class="bottom"
-      :disabled="Recording"
-      @click="startRecording"
-    >
+    <div v-show="began" class="bottom" :disabled="Recording" @click="startRecording">
       <i class="el-icon-microphone" />点击开始录音
     </div>
-    <div
-      v-show="!isRecording"
-      class="nova-btn"
-      @click="hint"
-    >
+    <div v-show="!isRecording" class="nova-btn" @click="hint">
       <div>
         <i class="el-icon-sunny" /> 话术提示
       </div>
     </div>
-    <div
-      v-show="isRecording"
-      class="tips-dialog"
-    >
+    <div v-show="isRecording" class="tips-dialog">
       <div class="headericon">
         <div>
           <i class="el-icon-sunny" /> 话术提示
@@ -68,37 +47,19 @@
         </p>
       </div>
     </div>
-    <div
-      v-show="!began"
-      class="recording"
-    >
-      <img
-        src="../assets/audioing-peding.93561376.png"
-        alt=""
-      >
-      <el-button
-        type="text"
-        class="close"
-        @click="afters"
-      >
+    <div v-show="!began" class="recording">
+      <img src="../assets/audioing-peding.93561376.png" alt="">
+      <el-button type="text" class="close" @click="afters">
         关闭
       </el-button>
-      <div
-        v-if="elapsedTime >= 0"
-        data-v-f7bd0078
-        class="time"
-      >
+      <div v-if="elapsedTime >= 0" data-v-f7bd0078 class="time">
         录音中 {{ formattedTime }}
       </div>
       <div class="twobutton">
         <el-button round>
           重录
         </el-button>
-        <el-button
-          round
-          :disabled="!Recording"
-          @click="stopRecording"
-        >
+        <el-button round :disabled="!Recording" @click="stopRecording">
           发送
         </el-button>
       </div>
@@ -107,6 +68,8 @@
 </template>
 <script>
 import axios from 'axios';
+import { mapState } from 'vuex'
+
 import ChatList from '../components/ChatList.vue';
 export default {
   name: 'StartPracticing',
@@ -129,6 +92,7 @@ export default {
     };
   },
   computed: {
+    ...mapState(['news']),
     formattedTime() {
       const minutes = Math.floor(this.elapsedTime / 60);
       const seconds = this.elapsedTime % 60;
@@ -238,6 +202,7 @@ export default {
   align-items: center;
   background: linear-gradient(247deg, rgba(92, 103, 255, .85098) 15.1%, rgba(226, 112, 255, .85098) 84.9%);
 }
+
 .recording img {
   width: 5em;
   height: 5em;
@@ -245,24 +210,27 @@ export default {
   bottom: 9.75em;
   left: 10em;
 }
+
 .recording .close {
   position: absolute;
   right: 1.1em;
   bottom: 9.75em;
 }
+
 .recording .time {
   margin-bottom: 1.7em;
   margin-top: 4.3em;
 }
+
 .pc {
   margin: 0.8em;
   width: 2.56em;
   height: 2.56em;
   background-size: cover;
-  background: url(../assets/cover.aa799c19.png);
   border-radius: 14em;
   background-size: 100% 100%;
 }
+
 .header {
   margin: 0.71em;
   padding: 0.71em;
@@ -273,11 +241,13 @@ export default {
   flex-direction: column;
   justify-content: space-around;
 }
+
 .header .single-line {
   font-weight: 500;
   font-size: 1.14em;
   color: white;
 }
+
 .header .title {
   margin: 0.55em 0.55em 0;
   padding: 0;
@@ -285,6 +255,7 @@ export default {
   justify-content: space-between;
   height: 2em;
 }
+
 .nova-btn {
   padding: 0.4em 0.6em;
   position: fixed;
@@ -297,6 +268,7 @@ export default {
   border-radius: 3.6em;
   bottom: 5em;
 }
+
 .tips-dialog {
   position: fixed;
   background-color: #fff;
@@ -308,15 +280,18 @@ export default {
   width: 26.43em;
   padding: 1.43em;
 }
+
 .tips-dialog .letter {
   overflow: auto;
   width: 22em;
   height: 11em;
 }
+
 .tips-dialog .headericon {
   display: flex;
   justify-content: space-between;
 }
+
 .recording {
   background-color: linear-gradient(247deg, rgba(92, 103, 255, 0.85098) 15.1%, rgba(226, 112, 255, 0.85098) 84.9%);
 }

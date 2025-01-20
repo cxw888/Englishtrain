@@ -7,13 +7,13 @@ const actions = {
 };
 // 操作数据
 const mutations = {
-  // JIA(state, value) {
-  //   state.practice.unshift(value);
-  // },
+  Getnews(state, value) {
+    state.news = value;
+  },
 };
 // 储存数据
 const state = {
-  // practice: [],
+  news: null,
 };
 export default new Vuex.Store({
   actions,

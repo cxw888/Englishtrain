@@ -5,12 +5,13 @@
       <div class="contet">
         <slot name="center" />
         <div class="content">
-          <div
-            v-for="item in datas"
-            :key="item.id"
-            class="item"
-          >
-            <div class="number">
+          <div v-for="item in datas" :key="item.id" class="item">
+            <!-- 如果type=time 则渲染第一个否则渲染v-else -->
+            <!-- <item.result的值应用在一个名字gettime的过滤器。 过滤器将数据格式化成想要的形式 -->
+            <div class="number" v-if="item.type === 'time'">
+              {{ item.result | gettime }}
+            </div>
+            <div class="number" v-else>
               {{ item.result }}
             </div>
             <div class="text">
@@ -25,6 +26,38 @@
 <script>
 export default {
   props: ['datas', 'customClass'],
+  filters: {
+    gettime(value) {
+      // 字符型转数字型 
+      let milliseconds = parseInt(value);
+      // Math.floor()用于将小时数的小数部分去掉，只保留整数部分。
+      let hours = Math.floor(milliseconds / (1000 * 60 * 60));
+      // 使用了取模运算符（%），它返回被除数除以除数的余数(毫秒数）。
+      let minutes = Math.floor((milliseconds % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((milliseconds % (1000 * 60)) / 1000);
+      if (hours > 0) {
+        if (minutes > 0) {
+          if (seconds > 0) {
+            return `${hours}小时 ${minutes}分${seconds}秒`;
+          } else {
+            return `${hours}小时 ${minutes}分`;
+          }
+        } else if (seconds > 0) {
+          return `${hours}小时 ${seconds}秒`;
+        } else {
+          return `${hours}小时`;
+        }
+      } else if (minutes > 0) {
+        if (seconds > 0) {
+          return ` ${minutes}分${seconds}秒`;
+        } else {
+          return ` ${minutes}分`;
+        }
+      } else {
+        return `${seconds}秒`;
+      }
+    }
+  },
 };
 </script>
 <style lang="css">
@@ -33,6 +66,7 @@ export default {
   margin-left: 0.71em;
   height: 8.36em;
 }
+
 .practice-summary .navigationbar {
   width: 100%;
   height: 100%;
@@ -40,34 +74,40 @@ export default {
   border-radius: 0.71em;
   padding: 0.14em;
 }
+
 .practice-summary .navigationbar .contet {
   padding: 0.55em 0.27em 0.55em 0.27em;
   height: 8em;
   background-color: #0d0f24;
   border-radius: 0.71em;
 }
+
 .practice-summary .navigationbar .contet .tge {
   margin: 0 0.71em 0;
   display: flex;
   height: 2.86em;
   justify-content: space-between;
 }
+
 .practice-summary .navigationbar .contet .tge .leftt {
   color: white;
   font-size: 1.4em;
   line-height: 1.8em;
   text-decoration: none;
 }
+
 .practice-summary .navigationbar .contet .tge .rightt {
   color: white;
   font-size: 0.92em;
   line-height: 2.86em;
   text-decoration: none;
 }
+
 .practice-summary .navigationbar .contet .content {
   margin: 0.71em;
   display: flex;
 }
+
 .practice-summary .navigationbar .contet .content .item {
   /* width: 17.66666667em; */
   flex: 1;
@@ -77,6 +117,7 @@ export default {
   position: relative;
   /* 近似于1/3的100% */
 }
+
 .practice-summary .navigationbar .contet .content .item::after {
   content: "";
   /* 不需要内容，因为我们只想要线条 */
@@ -94,12 +135,14 @@ export default {
   /* 如果希望线条贯穿整个盒子高度 */
   /* 或者可以设置一个具体的高度值 */
 }
+
 .practice-summary .navigationbar .contet .content .item .number {
   margin-bottom: 0.2em;
   color: white;
   font-weight: 600;
   font-size: 1.43em;
 }
+
 .practice-summary .navigationbar .contet .content .item .text {
   font-size: 0.9em;
 }
