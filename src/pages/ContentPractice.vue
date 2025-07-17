@@ -37,9 +37,7 @@
         <span class="title">{{ item.name }}</span>
       </div>
     </div>
-    <!-- 组件复用。 -->
     <RecordColumn :datas="rankingdata">
-      <!-- 插槽 -->
       <template slot="center">
         <div class="get">
           <div class="tag">

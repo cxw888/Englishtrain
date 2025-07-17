@@ -1,10 +1,7 @@
 <template>
   <div>
     <HeaderBox />
-    <!-- 组件的多次复用！！！ -->
-    <!-- 动态传输特定样式给复用的组件 给复用组件加特殊样式 -->
     <RecordColumn :datas="totaldata" custom-class="gradient-background">
-      <!-- 插槽 -->
       <template slot="center">
         <div class="tge">
           <div class="leftt">

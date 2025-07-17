@@ -18,7 +18,6 @@
         </div>
         <div class="meta">
           <div class="itemtime">
-            <!-- (main.js里) 定义一个全局过滤器。这个过滤器可以在任何组件的模板中使用 -->
             <div>练习时间:{{ item.times | gettime }}</div>
             <div class="time" />
           </div>

@@ -20,18 +20,13 @@ export default {
 };
 </script>
 <style lang="css" scoped>
-/* 标签中的文字只显示两行，多余的部分用省略号表示 */
 .clamp-text {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  /* 限制显示的行数为2 */
   -webkit-line-clamp: 2;
-  /* 超过部分隐藏 */
   overflow: hidden;
-  /* 显示省略号 */
   text-overflow: ellipsis;
   line-height: 1.5em;
-  /* 根据你的字体大小调整行高 */
   max-height: 3em;
 }
 

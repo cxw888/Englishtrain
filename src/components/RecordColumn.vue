@@ -1,16 +1,11 @@
 <template>
   <div class="practice-summary">
-    <!-- 组件的多次复用！！！ 不同的样式可以动态传过来  -->
     <div :class="['navigationbar', customClass]">
       <div class="contet">
-        <!-- 插槽！！！ -->
         <slot name="center" />
         <div class="content">
           <div v-for="item in datas" :key="item.id" class="item">
-            <!-- 如果type=time 则渲染第一个否则渲染v-else -->
-            <!-- <item.result的值应用在一个名字gettime的过滤器。 过滤器将数据格式化成想要的形式 -->
             <div class="number" v-if="item.type === 'time'">
-              <!-- (main.js里) 定义一个全局过滤器。这个过滤器可以在任何组件的模板中使用 -->
               {{ item.result | gettime }}
             </div>
             <div class="number" v-else>
