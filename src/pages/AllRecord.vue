@@ -18,6 +18,7 @@
         </div>
         <div class="meta">
           <div class="itemtime">
+            <!-- (main.js里) 定义一个全局过滤器。这个过滤器可以在任何组件的模板中使用 -->
             <div>练习时间:{{ item.times | gettime }}</div>
             <div class="time" />
           </div>
@@ -55,13 +56,7 @@ export default {
 
       return `${year}年${month}月${day}日${hours}时${minutes}分${seconds}秒`;
     },
-    getresult(value) {
-      if (value == -1) {
-        return `已完成`
-      } else {
-        return `未完成`
-      }
-    }
+
   },
   created() {
     this.allData();
